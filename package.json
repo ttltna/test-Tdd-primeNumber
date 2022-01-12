@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "node --exac babel-node ./index.js",
+    "start": "nodemon --exec babel-node ./src/findPrimeNumber.js",
     "lint": "eslint ./index.js --fix",
     "test:jest": "jest --watchAll --collect[=true] --logHeapUsage"
   },

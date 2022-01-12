@@ -4,120 +4,54 @@
 //   expect(sum(1, 2)).toBe(3);
 // });
 
-import { notPrimeNumber, checkPrimeNumber, countPrimeNumber } from "../src/findPrimeNumber.js"
+import { notPrimeNumber, checkPrimeNumber, countPrimeNumber, checkSqrt, rangeSqrt, lowNumCheck } from "../src/findPrimeNumber.js"
 
 /* 2미만의 수 확인 */
 test(`1는(은) 소수일 수 없습니다.`, () => {
   expect(notPrimeNumber(1)).toEqual(`1는(은) 소수일 수 없습니다.`);
 });
-
-test(`-1는(은) 소수일 수 없습니다.`, () => {
-  expect(notPrimeNumber(-1)).toEqual(`-1는(은) 소수일 수 없습니다.`);
-});
-
-test(`0는(은) 소수일 수 없습니다.`, () => {
-  expect(notPrimeNumber(0)).toEqual(`0는(은) 소수일 수 없습니다.`);
-});
-
 test(`2는(은) 소수일 수 있습니다.`, () => {
   expect(notPrimeNumber(2)).toEqual(`2는(은) 소수일 수 있습니다.`);
 });
 
 /* 소수 판별 */
-
 test("2는 소수입니다.", () => {
   expect(checkPrimeNumber(2)).toEqual("2는(은) 소수입니다.");
 });
-
 test("3는 소수입니다.", () => {
   expect(checkPrimeNumber(3)).toEqual("3는(은) 소수입니다.");
 });
-
 test("4는 소수가 아닙니다.", () => {
   expect(checkPrimeNumber(4)).toEqual("4는(은) 소수가 아닙니다.");
 });
 
-test("5는 소수입니다.", () => {
-  expect(checkPrimeNumber(5)).toEqual("5는(은) 소수입니다.");
-});
-
-test("9는 소수가 아닙니다.", () => {
-  expect(checkPrimeNumber(9)).toEqual("9는(은) 소수가 아닙니다.");
-});
-
 /* 1 ~ num 사이 소수의 갯수 */
-
-test("1부터 2사이에 있는 소수의 개수는 1개입니다.", () => {
-  expect(countPrimeNumber(2)).toEqual(1);
-});
-
-test("1부터 3사이에 있는 소수의 개수는 2개입니다.", () => {
-  expect(countPrimeNumber(3)).toEqual(2);
-});
-
-test("1부터 4사이에 있는 소수의 개수는 2개입니다.", () => {
-  expect(countPrimeNumber(4)).toEqual(2);
-});
-
 test("1부터 5사이에 있는 소수의 개수는 3개입니다.", () => {
   expect(countPrimeNumber(5)).toEqual(3);
 });
-
-test("1부터 6사이에 있는 소수의 개수는 3개입니다.", () => {
-  expect(countPrimeNumber(6)).toEqual(3);
-});
-
-test("1부터 7사이에 있는 소수의 개수는 4개입니다.", () => {
-  expect(countPrimeNumber(7)).toEqual(4);
-});
-
-test("1부터 8사이에 있는 소수의 개수는 4개입니다.", () => {
-  expect(countPrimeNumber(8)).toEqual(4);
-});
-
-test("1부터 9사이에 있는 소수의 개수는 4개입니다.", () => {
-  expect(countPrimeNumber(9)).toEqual(4);
-});
-
 test("1부터 10사이에 있는 소수의 개수는 4개입니다.", () => {
   expect(countPrimeNumber(10)).toEqual(4);
 });
-
-test("1부터 11사이에 있는 소수의 개수는 5개입니다.", () => {
-  expect(countPrimeNumber(11)).toEqual(5);
+/* 루트가 되는지 루트값이 맞는지 확인 */
+test("4의 루트값은!", () => {
+  expect(checkSqrt(4)).toBe(2);
+});
+test("16의 루트값은!", () => {
+  expect(checkSqrt(16)).toBe(4);
 });
 
-test("1부터 12사이에 있는 소수의 개수는 5개입니다.", () => {
-  expect(countPrimeNumber(12)).toEqual(5);
+/* 루트값만큼 순회하는지 확인 */
+test("100입력시 10번만 도는지 확인!", () => {
+  expect(rangeSqrt(120)).toBe(10);
 });
 
-test("1부터 13사이에 있는 소수의 개수는 6개입니다.", () => {
-  expect(countPrimeNumber(13)).toEqual(6);
+/* */
+test("1과 3사이의 소수 갯수는", () => {
+  expect(lowNumCheck(10000)).toBe(1229);
 });
-
-test("1부터 14사이에 있는 소수의 개수는 6개입니다.", () => {
-  expect(countPrimeNumber(14)).toEqual(6);
-});
-
-test("1부터 15사이에 있는 소수의 개수는 6개입니다.", () => {
-  expect(countPrimeNumber(15)).toEqual(6);
-});
-
-test("1부터 17사이에 있는 소수의 개수는 7개입니다.", () => {
-  expect(countPrimeNumber(17)).toEqual(7);
-});
-
-test("1부터 19사이에 있는 소수의 개수는 8개입니다.", () => {
-  expect(countPrimeNumber(19)).toEqual(8);
-});
-
-test("1부터 23사이에 있는 소수의 개수는 9개입니다.", () => {
-  expect(countPrimeNumber(23)).toEqual(9);
-});
-
-test("1부터 29사이에 있는 소수의 개수는 10개입니다.", () => {
-  expect(countPrimeNumber(29)).toEqual(10);
-});
+// 1. 소수찾기
+// 2. 소수의 배수는 무시
+// 3. 
 
 // toBe(a) // 예상한 값이 매개변수와 같은 값일 것인지 확인합니다.
 // toEqual(obj) // 매개변수(객체)와 같은 값일 것이라 예상합니다. 객체가 가진 값의 비교가 가능합니다.
